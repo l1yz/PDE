@@ -38,7 +38,7 @@ def build_colora(
         u_hat: callable function giving the reduced model u_hat where u_hat(theta, phi, x) -> solution
         h: callable function giving the hyper network where h(psi, mu_t) -> phi
         theta_init: parameter initializations for theta
-        psi_init: parameter initializations for psi
+        psi_init: parameter initializations for psic
     """
     net_u = DNN(**u_hat_config, out_dim=u_dim,
                 period=period, rank=rank, full=full)
