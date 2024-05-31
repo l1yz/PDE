@@ -43,6 +43,8 @@ class DNN(nn.Module):
 def get_layer(layer, width, period=None, rank=1, full=False):
     if layer == 'D':
         L = nn.Dense(width)
+    elif layer == 'END':
+        L=nn.Dense(1)
     elif layer == 'P':
         L = Periodic(width, period=period)
     elif layer == 'C':

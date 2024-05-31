@@ -75,3 +75,30 @@ class CoLoRA(nn.Module):
             out += b
 
         return out
+
+from typing import Callable, Optional
+from jax.experimental.ode import odeint
+
+
+# class NODE(nn.Module):
+#     width: int
+#     activation: Callable = nn.tanh
+
+#     @nn.compact
+#     def __call__(self, phi, t, psi):
+#         # Define the neural network for the ODE system
+#         x = jnp.concatenate([phi, psi], axis=-1)
+#         x = nn.Dense(self.width, dtype=jnp.float32, kernel_init=initializers.lecun_normal())(x)
+#         x = self.activation(x)
+#         x = nn.Dense(phi.shape[-1], dtype=jnp.float32, kernel_init=initializers.lecun_normal())(x)
+#         return x
+
+#     @staticmethod
+#     def ode_system(phi, t, params, psi):
+#         net = NeuralODE.apply({'params': params}, phi, t, psi)
+#         return net
+
+#     def integrate(self, phi_init, psi, t_span):
+#         params = self.param('params', initializers.lecun_normal(), (self.width, ))
+#         phi_trajectory = odeint(self.ode_system, phi_init, t_span, params, psi)
+#         return phi_trajectory

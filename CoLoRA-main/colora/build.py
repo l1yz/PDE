@@ -6,8 +6,6 @@ from jax.random import KeyArray
 
 from colora.networks import DNN
 from colora.utils import init_net, merge, split
-
-
 def build_colora(
     u_hat_config: dict,
     h_config: dict,
@@ -21,24 +19,17 @@ def build_colora(
     key: Optional[KeyArray] = None
 ):
     """Function to set up the full CoLoRA architecture both the hypernetwork given by h and the reduce model given by u_hat
-
     Args:
         u_hat_config (dict): configuration for u_hat such as layers, width, etc....
         h_config (dict): configuration for h such as layers, width, etc....
         x_dim (int): dim of spatital domain
         mu_t_dim (int): dim of mu + 1 for the time dimensions
-        u_dim (int): dim of output domain, usually equal to number of variables in PDE
-        lora_filter (List[str], optional): list of keys by which to seperate out the phi parameters from the theta parameters in the u_hat network. Defaults to ['alpha'].
-        period (Optional[jnp.ndarray], optional): _description_. Defaults to None.
-        rank (int, optional): rank of AB. Defaults to 1.
-        full (bool, optional): whether number of alphas per colora layer equals rank of AB (True) or is set to one (False). Defaults to False.
-        key (_type_, optional): jax random key, if None will create on own . Defaults to None.
 
     Returns:
         u_hat: callable function giving the reduced model u_hat where u_hat(theta, phi, x) -> solution
         h: callable function giving the hyper network where h(psi, mu_t) -> phi
         theta_init: parameter initializations for theta
-        psi_init: parameter initializations for psic
+        psi_init: parameter initializations for psi
     """
     net_u = DNN(**u_hat_config, out_dim=u_dim,
                 period=period, rank=rank, full=full)
