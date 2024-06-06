@@ -10,7 +10,7 @@ from matplotlib.animation import FuncAnimation
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 
-def imshow_movie(sol, frames=50, t=None, interval=100, tight=False, title='', cmap='viridis', aspect='equal', live_cbar=False, save_to=None, show=True):
+def imshow_movie(sol, frames=250, t=None, interval=100, tight=False, title='', cmap='viridis', aspect='equal', live_cbar=False, save_to=None, show=True):
 
     fig, ax = plt.subplots()
     div = make_axes_locatable(ax)

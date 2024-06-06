@@ -76,8 +76,23 @@ class CoLoRA(nn.Module):
 
         return out
 
-from typing import Callable, Optional
-from jax.experimental.ode import odeint
+# from typing import Callable, Optional
+# from jax.experimental.ode import odeint
+
+# class NODE(nn.Module):
+#     width: int
+#     param_dtype = jnp.float32
+#     w_init: Callable = initializers.lecun_normal()
+
+#     @nn.compact
+#     def __call__(self, t, state, params):
+#         # t: current time, state: current value of phi, params: mu
+#         concatenated_input = jnp.concatenate([state, params, jnp.array([t])])
+#         for i in range(3):  # Simple example with 3 layers
+#             concatenated_input = nn.Dense(self.width, kernel_init=self.w_init)(concatenated_input)
+#             concatenated_input = jax.nn.relu(concatenated_input)
+#         output = nn.Dense(state.shape[0], kernel_init=self.w_init)(concatenated_input)
+#         return output
 
 
 # class NODE(nn.Module):
