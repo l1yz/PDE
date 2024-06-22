@@ -2,7 +2,8 @@ from typing import List, Optional
 import jax
 import jax.numpy as jnp
 from jax.flatten_util import ravel_pytree
-from jax.random import KeyArray
+#from jax.random import KeyArray ## this has been deprecated, instead we use
+from jax import Array
 
 from colora.networks import DNN
 from colora.utils import init_net, merge, split
@@ -16,7 +17,7 @@ def build_colora(
     period: Optional[jnp.ndarray] = None,
     rank: int = 1,
     full: bool = False,
-    key: Optional[KeyArray] = None
+    key: Optional[Array] = None
 ):
     """Function to set up the full CoLoRA architecture both the hypernetwork given by h and the reduce model given by u_hat
     Args:

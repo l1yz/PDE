@@ -88,7 +88,7 @@ class Dataset:
         self.idx = jnp.arange(0, len(mu_t), 1, dtype=jnp.int32)
         self.n_batches = n_batches
 
-        self.shuffle()
+        #self.shuffle()
         self.batch()
 
         self.b_i = 0

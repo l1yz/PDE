@@ -1,0 +1,37 @@
+Burgers 
+
+u_layers = ['P', 'C', 'C', 'C', 'C', 'C', 'C', 'C']
+h_layers = ['D', 'D', 'D']
+rank = 3
+# made the nn smaller for taining purposes
+u_hat_config = {'width': 25, 'layers': u_layers}
+h_config = {'width': 15, 'layers': h_layers}
+
+NODE:
+
+from colora.NODE import NODE
+keygen = 123
+phi_dim = 7  #change this if needed 
+mu_dim = 1   
+hidden_dim = 20
+depth = 4
+-----------------------------
+Vlasov 
+
+u_layers = ['P', 'C', 'C', 'C', 'D', 'D', 'D', 'D']
+h_layers = ['D', 'D', 'D']
+rank = 3
+
+u_hat_config = {'width': 25, 'layers': u_layers}
+h_config = {'width': 15, 'layers': h_layers}
+
+NODE:
+
+from colora.NODE import NODE
+import equinox as eqx
+
+keygen = 123
+phi_dim = 3 
+mu_dim = 1   
+hidden_dim = 15
+depth = 4
