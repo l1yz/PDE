@@ -64,7 +64,7 @@ class CoLoRA(nn.Module):
         alpha = self.param('alpha', z_init, (n_alpha,), self.param_dtype)
 
         AB = (A*alpha)@B
-        AB = AB  # / r
+        AB = AB *0.01 # / r
         W = (W + AB)
 
         out = X@W
